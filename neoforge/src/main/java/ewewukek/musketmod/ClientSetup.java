@@ -29,7 +29,9 @@ public class ClientSetup {
     }
 
     public void setup(final FMLClientSetupEvent event) {
-        ClientUtilities.registerItemProperties();
+        event.enqueueWork(() -> {
+            ClientUtilities.registerItemProperties();
+        });
     }
 
     public void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
